@@ -108,7 +108,7 @@
         <div class="stats-card">
             <h5 class="mb-3">Quick Actions</h5>
             <div class="d-grid gap-2">
-                <a href="{{ route('admin.users') }}" class="btn btn-primary">
+                <a href="{{ route('admin.users.index') }}" class="btn btn-primary">
                     <i class="fas fa-users me-2"></i>Manage Users
                 </a>
                 <button class="btn btn-outline-secondary" onclick="AdminCommon.Toast.info('Settings feature coming soon!')">
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Ctrl/Cmd + 2 for Users
         if ((e.ctrlKey || e.metaKey) && e.key === '2') {
             e.preventDefault();
-            window.location.href = '{{ route("admin.users") }}';
+            window.location.href = '{{ route("admin.users.index") }}';
         }
     });
 });

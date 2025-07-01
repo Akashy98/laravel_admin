@@ -482,3 +482,10 @@
         transition-duration: 0.01ms !important;
     }
 }
+
+/* Heading color fix for better visibility */
+h1, h2, h3, .page-title, .main-content h2 {
+    color: #222 !important;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}

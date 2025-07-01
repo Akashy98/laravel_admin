@@ -22,7 +22,7 @@
         <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
             <i class="fas fa-tachometer-alt me-2"></i>Dashboard
         </a>
-        <a class="nav-link {{ request()->routeIs('admin.users') ? 'active' : '' }}" href="{{ route('admin.users') }}">
+        <a class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
             <i class="fas fa-users me-2"></i>Users
         </a>
         <a class="nav-link {{ request()->routeIs('admin.example') ? 'active' : '' }}" href="{{ route('admin.example') }}">
@@ -173,7 +173,7 @@ document.addEventListener('keydown', function(e) {
     // Ctrl/Cmd + 2 for Users
     if ((e.ctrlKey || e.metaKey) && e.key === '2') {
         e.preventDefault();
-        window.location.href = '{{ route("admin.users") }}';
+        window.location.href = '{{ route("admin.users.index") }}';
     }
 
     // Ctrl/Cmd + 3 for Examples
