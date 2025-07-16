@@ -11,6 +11,64 @@ let adminCommon = {
 };
 
 /**
+ * Theme Management System
+ */
+const ThemeManager = {
+    // Initialize theme
+    init() {
+        this.loadTheme();
+        this.bindEvents();
+    },
+
+    // Load saved theme from localStorage
+    loadTheme() {
+        const savedTheme = localStorage.getItem('admin-theme') || 'light';
+        this.setTheme(savedTheme);
+    },
+
+    // Set theme
+    setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('admin-theme', theme);
+        this.updateToggleButton(theme);
+    },
+
+    // Toggle theme
+    toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        this.setTheme(newTheme);
+
+        // Show notification
+        Toast.show(`Switched to ${newTheme} theme`, 'info', 2000);
+    },
+
+    // Update toggle button appearance
+    updateToggleButton(theme) {
+        const lightIcon = document.getElementById('light-icon');
+        const darkIcon = document.getElementById('dark-icon');
+
+        if (theme === 'dark') {
+            if (lightIcon) lightIcon.style.display = 'none';
+            if (darkIcon) darkIcon.style.display = 'inline-block';
+        } else {
+            if (lightIcon) lightIcon.style.display = 'inline-block';
+            if (darkIcon) darkIcon.style.display = 'none';
+        }
+    },
+
+    // Bind events
+    bindEvents() {
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                this.toggleTheme();
+            });
+        }
+    }
+};
+
+/**
  * Toast Notification System
  */
 const Toast = {
@@ -594,6 +652,9 @@ const Loading = {
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize theme manager
+    ThemeManager.init();
+
     // Initialize sidebar
     Sidebar.init();
 
@@ -622,5 +683,6 @@ window.AdminCommon = {
     ModalHelper,
     Utils,
     Sidebar,
-    Loading
+    Loading,
+    ThemeManager
 };

@@ -14,7 +14,12 @@
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
-        "laravel/tinker": "^2.0"
+        "laravel/passport": "9.0",
+        "laravel/sanctum": "^2.15",
+        "laravel/tinker": "^2.0",
+        "lcobucci/jwt": "3.4.6",
+        "microsoft/azure-storage-blob": "^1.5",
+        "rap2hpoutre/laravel-log-viewer": "^2.5"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

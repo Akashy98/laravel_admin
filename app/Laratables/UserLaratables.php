@@ -2,7 +2,7 @@
 
 namespace App\Laratables;
 
-use App\User;
+use App\Models\User;
 use Freshbitsweb\Laratables\Laratables;
 
 class UserLaratables
@@ -28,7 +28,7 @@ class UserLaratables
 
     public static function laratablesCustomIsAdmin($user)
     {
-        if ($user->is_admin) {
+        if ($user->role_id === 1) {
             return '<span class="badge bg-success">Admin</span>';
         } else {
             return '<span class="badge bg-secondary">User</span>';
@@ -42,7 +42,7 @@ class UserLaratables
 
     public static function laratablesOrderColumns()
     {
-        return ['id', 'name', 'email', 'is_admin', 'created_at'];
+        return ['id', 'name', 'email', 'role_id', 'created_at'];
     }
 
     public static function laratablesColumns()
@@ -51,7 +51,7 @@ class UserLaratables
             'id',
             'name',
             'email',
-            'is_admin',
+            'role_id',
             'created_at',
             'action'
         ];

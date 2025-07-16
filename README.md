@@ -1,25 +1,102 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# AstroIndia Backend API
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+<img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400">
 </p>
 
-## About Laravel
+<p align="center">
+<strong>Astrology Services API Platform</strong>
+</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📚 Documentation
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**📖 [View Complete Documentation](docs/README.md)**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+All project documentation has been organized in the `docs/` folder for better structure and accessibility.
+
+## 🚀 Quick Start
+
+1. **Clone the repository**
+2. **Install dependencies**: `composer install`
+3. **Configure environment**: Copy `.env.example` to `.env`
+4. **Run migrations**: `php artisan migrate`
+5. **Seed database**: `php artisan db:seed`
+6. **Start server**: `php artisan serve`
+
+## 🏗️ Project Overview
+
+AstroIndia Backend is a Laravel-based REST API that provides comprehensive astrology services including:
+
+- **User Management**: Registration, authentication, profile management
+- **Astrologer Services**: Profiles, availability, pricing, reviews
+- **Location Services**: Countries, states, cities management
+- **Wallet System**: Digital wallet with transactions and offers
+- **Admin Panel**: Comprehensive admin interface
+
+## 📊 Key Features
+
+- ✅ **OTP Authentication**: Secure OTP-based user authentication
+- ✅ **API Logging**: Comprehensive request/response logging with daily rotation
+- ✅ **RESTful API**: Standardized JSON responses
+- ✅ **Admin Panel**: Full-featured admin interface
+- ✅ **Wallet System**: Digital wallet with transaction tracking
+- ✅ **Location Services**: Complete location management system
+
+## 🔧 Technology Stack
+
+- **Framework**: Laravel 8+
+- **Database**: MySQL
+- **Authentication**: Laravel Sanctum
+- **API**: RESTful API with JSON responses
+- **Logging**: Custom API logging middleware
+
+## 📁 Project Structure
+
+```
+astroindia_backend/
+├── app/Http/Controllers/Api/     # API Controllers
+├── app/Http/Controllers/Admin/   # Admin Controllers
+├── app/Models/                   # Eloquent Models
+├── app/Http/Middleware/          # Custom Middleware
+├── config/                       # Configuration Files
+├── database/migrations/          # Database Migrations
+├── routes/api.php               # API Routes
+├── docs/                        # 📚 Documentation
+└── storage/logs/                # Application Logs
+```
+
+## 📖 Documentation Index
+
+- **[📚 Complete Documentation](docs/README.md)** - Main documentation index
+- **[🚀 API Resources](docs/API_RESOURCES_DOCUMENTATION.md)** - API endpoints
+- **[📋 API Response Structure](docs/API_RESPONSE_STRUCTURE.md)** - Response formats
+- **[🔮 Astrologer API](docs/ASTROLOGER_API_DOCUMENTATION.md)** - Astrologer endpoints
+- **[🔐 OTP Authentication](docs/OTP_AUTHENTICATION.md)** - Authentication system
+- **[⚙️ Admin Setup](docs/ADMIN_SETUP.md)** - Admin panel setup
+- **[🎨 Admin Assets](docs/ADMIN_JS_CSS_README.md)** - Frontend assets
+- **[📝 API Logging](docs/API_LOGGING_MIDDLEWARE.md)** - Logging system
+
+## 🔍 Logging & Monitoring
+
+The application includes a comprehensive API logging system:
+
+- **Daily log rotation**: `storage/logs/api-YYYY-MM-DD.log`
+- **Request/response logging**: Complete API activity tracking
+- **Security**: Automatic filtering of sensitive data
+- **Performance**: Configurable size limits and exclusions
+
+## 🤝 Contributing
+
+When adding new features or making changes:
+
+1. **Update relevant documentation** in the `docs/` folder
+2. **Follow Laravel conventions** for code structure
+3. **Add appropriate logging** for new API endpoints
+4. **Update API documentation** for new endpoints
+
+## 📄 License
+
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ## Learning Laravel
 

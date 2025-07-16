@@ -16,7 +16,7 @@ const UserManagement = {
                 // Populate edit modal
                 document.getElementById('edit_name').value = user.name;
                 document.getElementById('edit_email').value = user.email;
-                document.getElementById('edit_is_admin').checked = user.is_admin;
+                document.getElementById('edit_is_admin').checked = user.role_id === 1;
                 document.getElementById('editUserForm').action = `/admin/users/${userId}`;
 
                 // Show modal

@@ -1,7 +1,7 @@
 <!-- Sidebar Component -->
 <div class="sidebar p-3" id="sidebar">
     <div class="text-center mb-4">
-        <h4><i class="fas fa-shield-alt me-2"></i>Admin Panel</h4>
+        <h4><i class="fas fa-shield-alt me-2"></i>Astro India</h4>
         <small class="text-muted">v{{ config('app.version', '1.0.0') }}</small>
     </div>
 
@@ -12,7 +12,7 @@
                  alt="Avatar" class="rounded-circle me-2" width="40">
             <div class="flex-grow-1">
                 <div class="fw-bold">{{ Auth::user()->name }}</div>
-                <small class="text-muted">{{ Auth::user()->is_admin ? 'Administrator' : 'User' }}</small>
+                <small class="sidebar-gradient-text sidebar-admin-glow">{{ Auth::user()->isAdmin() ? 'Administrator' : 'User' }}</small>
             </div>
         </div>
     </div>
@@ -23,36 +23,86 @@
             <i class="fas fa-tachometer-alt me-2"></i>Dashboard
         </a>
         <a class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
-            <i class="fas fa-users me-2"></i>Users
+            <i class="fas fa-user-friends me-2"></i>Customers
         </a>
-        <a class="nav-link {{ request()->routeIs('admin.example') ? 'active' : '' }}" href="{{ route('admin.example') }}">
-            <i class="fas fa-code me-2"></i>Examples
+        <a class="nav-link {{ request()->routeIs('admin.astrologers.*') ? 'active' : '' }}" href="{{ route('admin.astrologers.index') }}">
+            <i class="fas fa-user-astronaut me-2"></i>Astrologers
         </a>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.categories.index') }}">
+                <i class="fas fa-list-alt me-2"></i> Categories
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('admin.products.*') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">
+                <i class="fas fa-box me-2"></i> Products
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.wallet-offers.index') }}">
+                <i class="fas fa-gift me-2"></i> Wallet Offers
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.banners.index') }}">
+                <i class="fas fa-image me-2"></i> Banners
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('admin.videos.*') ? 'active' : '' }}" href="{{ route('admin.videos.index') }}">
+                <i class="fas fa-video me-2"></i> Videos
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('admin.astrologer_reviews.*') ? 'active' : '' }}" href="{{ route('admin.astrologer_reviews.index') }}">
+                <i class="fas fa-star me-2"></i> Reviews
+            </a>
+        </li>
+
+        <!-- Appointments Section -->
+        <div class="sidebar-section mt-3">
+            <small class="sidebar-gradient-text text-uppercase px-3 mb-2 d-block">Appointments</small>
+            <a class="nav-link {{ request()->routeIs('admin.appointments.index') ? 'active' : '' }}" href="{{ route('admin.appointments.index') }}">
+                <i class="fas fa-calendar-check me-2"></i>All Appointments
+            </a>
+            <a class="nav-link {{ request()->routeIs('admin.appointments.statistics') ? 'active' : '' }}" href="{{ route('admin.appointments.statistics') }}">
+                <i class="fas fa-chart-bar me-2"></i>Statistics
+            </a>
+            <a class="nav-link {{ request()->routeIs('admin.appointment-settings.*') ? 'active' : '' }}" href="{{ route('admin.appointment-settings.index') }}">
+                <i class="fas fa-cog me-2"></i>Settings
+            </a>
+            <a class="nav-link" href="#" onclick="AdminCommon.Toast.info('Reports feature coming soon!')">
+                <i class="fas fa-file-alt me-2"></i>Reports
+            </a>
+        </div>
 
         <!-- Settings Section -->
         <div class="sidebar-section mt-3">
-            <small class="text-muted text-uppercase px-3 mb-2 d-block">Settings</small>
+            <small class="sidebar-gradient-text text-uppercase px-3 mb-2 d-block">Settings</small>
             <a class="nav-link" href="#" onclick="AdminCommon.Toast.info('Settings feature coming soon!')">
                 <i class="fas fa-cog me-2"></i>General Settings
             </a>
-            <a class="nav-link" href="#" onclick="AdminCommon.Toast.info('Profile feature coming soon!')">
-                <i class="fas fa-user-cog me-2"></i>Profile
+            <a class="nav-link {{ request()->routeIs('admin.pages.*') ? 'active' : '' }}" href="{{ route('admin.pages.index') }}">
+                <i class="fas fa-file-alt me-2"></i>Pages
             </a>
+            {{-- <a class="nav-link" href="#" onclick="AdminCommon.Toast.info('Profile feature coming soon!')">
+                <i class="fas fa-user-cog me-2"></i>Profile
+            </a> --}}
         </div>
 
         <!-- System Section -->
         <div class="sidebar-section mt-3">
-            <small class="text-muted text-uppercase px-3 mb-2 d-block">System</small>
-            <a class="nav-link" href="#" onclick="showSystemInfo()">
+            <small class="sidebar-gradient-text text-uppercase px-3 mb-2 d-block">System</small>
+            {{-- <a class="nav-link" href="#" onclick="showSystemInfo()">
                 <i class="fas fa-info-circle me-2"></i>System Info
-            </a>
-            <a class="nav-link" href="#" onclick="AdminCommon.Toast.info('Logs feature coming soon!')">
+            </a> --}}
+            <a class="nav-link {{ request()->routeIs('logs') ? 'active' : '' }}" href="{{ route('logs') }}">
                 <i class="fas fa-file-alt me-2"></i>Logs
             </a>
         </div>
 
         <!-- Divider -->
-        <hr class="my-3" style="border-color: rgba(255, 255, 255, 0.1);">
+        <hr class="sidebar-gradient-divider my-3">
 
         <!-- Logout -->
         <a class="nav-link text-danger" href="#" onclick="confirmLogout()">
@@ -61,13 +111,13 @@
     </nav>
 
     <!-- Sidebar Footer -->
-    <div class="sidebar-footer mt-auto pt-3">
+    {{-- <div class="sidebar-footer mt-auto pt-3">
         <div class="text-center">
-            <small class="text-muted">
-                <i class="fas fa-heart text-danger"></i> Made with Laravel
+            <small class="text-white">
+                <i class="fas fa-heart text-danger"></i> Code Brew
             </small>
         </div>
-    </div>
+    </div> --}}
 </div>
 
 <!-- System Info Modal -->
